@@ -21,15 +21,15 @@ private extension TabBarViewController {
         let favoritesViewController = FavoritesViewController()
         let repository = AnimalsRepository()
         let animalsPresenter = AnimalsPresenter(repository: repository)
-        let viewController = AnimalsViewController(presenter: animalsPresenter)
-        animalsPresenter.view = viewController
+        let animalsViewController = AnimalsViewController(presenter: animalsPresenter)
+        animalsPresenter.view = animalsViewController
         
         homeViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured,
                                                      tag: 0)
         favoritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites,
                                                           tag: 1)
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more,
+        animalsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more,
                                                  tag: 2)
-        return [homeViewController, favoritesViewController, viewController]
+        return [animalsViewController, favoritesViewController, homeViewController]
     }
 }

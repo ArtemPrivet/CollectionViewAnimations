@@ -10,6 +10,7 @@ import UIKit
 
 protocol IAnimalsView: AnyObject {
     func reloadDada()
+    func animateSwitchCollections()
 }
 
 class AnimalsViewController: UIViewController {
@@ -17,9 +18,12 @@ class AnimalsViewController: UIViewController {
     private let collectionView = UICollectionView(frame: .zero,
                                                   collectionViewLayout: UICollectionViewFlowLayout())
     private let presenter: IAnimalsPresenter
-    private let segmentedControl: SegmentedControl = {
+    private lazy var segmentedControl: SegmentedControl = {
         let items = ["Dogs", "Cats"]
         let control = SegmentedControl(items: items)
+        control.didChangeIndex = { [weak self] index in
+            self?.presenter.didSelectAnimals(index: index)
+        }
         return control
     }()
 
@@ -61,6 +65,24 @@ class AnimalsViewController: UIViewController {
 extension AnimalsViewController: IAnimalsView {
     func reloadDada() {
         collectionView.reloadData()
+    }
+
+    func animateSwitchCollections() {
+        collectionView.layoutIfNeeded()
+        let indexies = collectionView.indexPathsForVisibleItems.sorted()
+        let cells = indexies.compactMap { collectionView.cellForItem(at: $0) }
+        for (index, cell) in cells.enumerated() {
+            let initialX = cell.frame.origin.x
+            switch self.presenter.state {
+            case .dogs:
+                cell.frame.origin.x = cell.frame.origin.x - collectionView.bounds.width
+            case .cats:
+                cell.frame.origin.x = cell.frame.origin.x + collectionView.bounds.width
+            }
+            UIView.animate(withDuration: 0.5, delay: 0.1 * Double(index), options: .curveEaseInOut, animations: {
+                cell.frame.origin.x = initialX
+            }, completion: nil)
+        }
     }
 }
 

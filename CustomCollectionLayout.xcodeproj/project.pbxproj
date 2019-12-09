@@ -20,6 +20,7 @@
 		CAFFC97D239D126A008B4C5B /* AnimalsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFFC97C239D126A008B4C5B /* AnimalsRepository.swift */; };
 		CAFFC985239D4AD7008B4C5B /* AnimalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFFC984239D4AD7008B4C5B /* AnimalImageView.swift */; };
 		CAFFC989239D5889008B4C5B /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFFC988239D5889008B4C5B /* SegmentedControl.swift */; };
+		CAFFC98D239D6CE7008B4C5B /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFFC98C239D6CE7008B4C5B /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		CAFFC97C239D126A008B4C5B /* AnimalsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsRepository.swift; sourceTree = "<group>"; };
 		CAFFC984239D4AD7008B4C5B /* AnimalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalImageView.swift; sourceTree = "<group>"; };
 		CAFFC988239D5889008B4C5B /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		CAFFC98C239D6CE7008B4C5B /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,7 @@
 				CA2D59172396D9870065A6B7 /* Application */,
 				CA2D59182396DA260065A6B7 /* Module */,
 				CA2D59162396D8410065A6B7 /* SupportingFiles */,
-				CAFFC976239CF936008B4C5B /* AnimalModel.swift */,
+				CAFFC98B239D680C008B4C5B /* Models */,
 			);
 			path = CustomCollectionLayout;
 			sourceTree = "<group>";
@@ -101,6 +103,8 @@
 		CA2D59182396DA260065A6B7 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				CAFFC990239D8BE3008B4C5B /* BusinessLogic */,
+				CAFFC98A239D655F008B4C5B /* Views */,
 				CA2D59222396E4D00065A6B7 /* Animals */,
 				CA2D591F2396E4B10065A6B7 /* TabBar */,
 				CA2D59212396E4C90065A6B7 /* Home */,
@@ -139,9 +143,6 @@
 				CA2D59062396D7C40065A6B7 /* AnimalsViewController.swift */,
 				CA2D59232396E5080065A6B7 /* AnimalsCollectionCell.swift */,
 				CAFFC97A239D1063008B4C5B /* AnimalsPresenter.swift */,
-				CAFFC97C239D126A008B4C5B /* AnimalsRepository.swift */,
-				CAFFC984239D4AD7008B4C5B /* AnimalImageView.swift */,
-				CAFFC988239D5889008B4C5B /* SegmentedControl.swift */,
 			);
 			path = Animals;
 			sourceTree = "<group>";
@@ -152,6 +153,32 @@
 				CAFFC972239CF379008B4C5B /* SnapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CAFFC98A239D655F008B4C5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CAFFC984239D4AD7008B4C5B /* AnimalImageView.swift */,
+				CAFFC988239D5889008B4C5B /* SegmentedControl.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CAFFC98B239D680C008B4C5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CAFFC98C239D6CE7008B4C5B /* State.swift */,
+				CAFFC976239CF936008B4C5B /* AnimalModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CAFFC990239D8BE3008B4C5B /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				CAFFC97C239D126A008B4C5B /* AnimalsRepository.swift */,
+			);
+			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +262,7 @@
 				CAFFC97D239D126A008B4C5B /* AnimalsRepository.swift in Sources */,
 				CA2D59032396D7C40065A6B7 /* AppDelegate.swift in Sources */,
 				CA2D591C2396DDDC0065A6B7 /* HomeViewController.swift in Sources */,
+				CAFFC98D239D6CE7008B4C5B /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

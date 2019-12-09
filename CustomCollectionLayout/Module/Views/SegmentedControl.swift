@@ -8,9 +8,15 @@
 
 import UIKit
 
-final class SegmentedControl: UIView {
+protocol ISegmentedControl: AnyObject {
+    var didChangeIndex: ((Int) -> Void)? { get set }
+}
+
+final class SegmentedControl: UIView, ISegmentedControl {
 
     private let control = UISegmentedControl()
+
+    var didChangeIndex: ((Int) -> Void)?
 
     init(items: [String]) {
         super.init(frame: .zero)
@@ -36,5 +42,12 @@ private extension SegmentedControl {
         control.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
         control.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         control.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+
+        control.addTarget(self, action: #selector(segmentChanged(sender:)), for: .valueChanged)
+    }
+
+    @objc
+    func segmentChanged(sender: UISegmentedControl) {
+        didChangeIndex?(sender.selectedSegmentIndex)
     }
 }
